@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../models/product.model';
@@ -7,7 +6,7 @@ import { Product } from '../../../models/product.model';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [RouterLink, FormsModule],
+  imports: [FormsModule],
   template: `
     <div class="products-container">
       <div class="header">
