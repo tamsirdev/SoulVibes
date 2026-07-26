@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { OrderService } from '../../../services/order.service';
 import { Order } from '../../../models/order.model';
@@ -5,7 +6,7 @@ import { Order } from '../../../models/order.model';
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   template: `
     <div class="orders-container">
       <h1>Manage Orders</h1>

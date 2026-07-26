@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ProductService } from '../../../services/product.service';
-import { Product, Category } from '../../../models/product.model';
+import { ProductService } from '../../services/product.service';
+import { Product, Category } from '../../models/product.model';
 
 @Component({
   selector: 'app-home',

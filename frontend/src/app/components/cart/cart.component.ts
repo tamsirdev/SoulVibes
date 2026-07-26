@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CartService } from '../../../services/cart.service';
-import { Cart, CartItem } from '../../../models/cart.model';
+import { CartService } from '../../services/cart.service';
+import { Cart, CartItem } from '../../models/cart.model';
 
 @Component({
   selector: 'app-cart',

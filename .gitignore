@@ -59,3 +59,10 @@ backend/.env
 # Task Documents
 *.docx
 *.pdf
+
+# Docker
+docker-compose.override.yml
+
+# Deployment
+.railway/
+.netlify/

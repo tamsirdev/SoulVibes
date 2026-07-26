@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { OrderService } from '../../../services/order.service';
@@ -6,7 +7,7 @@ import { Order } from '../../../models/order.model';
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, DatePipe],
   template: `
     <div class="orders-container">
       <h1>My Orders</h1>

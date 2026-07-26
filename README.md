@@ -2,6 +2,8 @@
 
 A full-stack e-commerce website built with Django REST Framework and Angular.
 
+[![CI/CD Pipeline](https://github.com/tamsirdev/SoulVibes/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/tamsirdev/SoulVibes/actions/workflows/ci-cd.yml)
+
 ## Features
 
 ### User Features
@@ -38,10 +40,17 @@ A full-stack e-commerce website built with Django REST Framework and Angular.
 - TypeScript
 - SCSS
 
+### DevOps
+- GitHub Actions (CI/CD)
+- Docker & Docker Compose
+- Railway (Backend Hosting)
+- Netlify (Frontend Hosting)
+
 ## Project Structure
 
 ```
 SoulVibes/
+├── .github/workflows/      # GitHub Actions CI/CD
 ├── backend/                 # Django backend
 │   ├── soulvibe/           # Django project settings
 │   ├── users/              # User authentication & management
@@ -55,67 +64,74 @@ SoulVibes/
 │       ├── services/       # API services
 │       ├── models/         # TypeScript models
 │       └── guards/         # Route guards
+├── docker-compose.yml      # Docker orchestration
 └── requirements.txt        # Python dependencies
 ```
 
-## Setup Instructions
+## Quick Start
 
-### Backend Setup
+### Local Development
 
-1. Navigate to backend directory:
-   ```bash
-   cd backend
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/tamsirdev/SoulVibes.git
+cd SoulVibes
 
-2. Create and activate virtual environment:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
+# Start with Docker Compose
+docker-compose up
 
-3. Install dependencies:
-   ```bash
-   pip install -r ../requirements.txt
-   ```
+# Or run manually:
+# Backend
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r ../requirements.txt
+python manage.py migrate
+python manage.py runserver 8000
 
-4. Create MySQL database:
-   ```sql
-   CREATE DATABASE soulvibe_db;
-   ```
+# Frontend (new terminal)
+cd frontend
+npm install
+ng serve
+```
 
-5. Run migrations:
-   ```bash
-   python manage.py migrate
-   ```
+### Access URLs
+- Frontend: http://localhost:4200
+- Backend API: http://localhost:8000
+- Django Admin: http://localhost:8000/admin
 
-6. Create superuser:
-   ```bash
-   python manage.py createsuperuser
-   ```
+## Deployment (Free Tier)
 
-7. Run development server:
-   ```bash
-   python manage.py runserver
-   ```
+### Backend - Railway
+1. Sign up at [railway.app](https://railway.app)
+2. Connect your GitHub repository
+3. Add environment variables:
+   - `SECRET_KEY`
+   - `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`
+   - `DEBUG=False`
+4. Railway provides free MySQL database
 
-### Frontend Setup
+### Frontend - Netlify
+1. Sign up at [netlify.com](https://netlify.com)
+2. Connect your GitHub repository
+3. Build settings:
+   - Build command: `cd frontend && npm run build`
+   - Publish directory: `frontend/dist/frontend`
+4. Add environment variable:
+   - `API_URL`: Your Railway backend URL
 
-1. Navigate to frontend directory:
-   ```bash
-   cd frontend
-   ```
+### CI/CD Pipeline
+The GitHub Actions workflow automatically:
+1. Runs backend tests on every push
+2. Builds and lints frontend code
+3. Deploys backend to Railway on main branch
+4. Deploys frontend to Netlify on main branch
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Run development server:
-   ```bash
-   ng serve
-   ```
-
-4. Open browser and navigate to `http://localhost:4200`
+### Required GitHub Secrets
+Add these in Settings → Secrets → Actions:
+- `RAILWAY_TOKEN`: Railway API token
+- `NETLIFY_AUTH_TOKEN`: Netlify personal access token
+- `NETLIFY_SITE_ID`: Netlify site ID
 
 ## API Endpoints
 

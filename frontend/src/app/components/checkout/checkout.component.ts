@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CartService } from '../../../services/cart.service';
-import { OrderService } from '../../../services/order.service';
-import { AuthService } from '../../../services/auth.service';
-import { Cart } from '../../../models/cart.model';
-import { Address } from '../../../models/user.model';
+import { CartService } from '../../services/cart.service';
+import { OrderService } from '../../services/order.service';
+import { AuthService } from '../../services/auth.service';
+import { Cart } from '../../models/cart.model';
+import { Address } from '../../models/user.model';
 
 @Component({
   selector: 'app-checkout',
